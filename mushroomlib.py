@@ -3,16 +3,20 @@ import shutil
 import sys
 
 working_directory = ""
-try:
-    with open("mushroom_dir.conf", 'r') as f:
-        working_directory = f.read()
-except IOError:
-    pass
-
-if (working_directory != ""):
-    pass
-elif (working_directory == "" or working_directory == " "):
-    pass
+# =========================
+# Disabled, not finished.
+# =========================
+# try:
+#    with open("mushroom_dir.conf", 'r') as f:
+#        working_directory = f.read()
+#except IOError:
+#    pass
+#
+#if (working_directory != ""):
+#    pass
+#elif (working_directory == "" or working_directory == " "):
+#    pass
+# =========================
 
 
 def cf():
