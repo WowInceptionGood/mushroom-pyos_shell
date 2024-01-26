@@ -3,18 +3,7 @@ import shutil
 import sys
 import mushroomlib
 
-working_directory = ""
-try:
-    with open("mushroom_dir.conf", 'r') as f:
-        working_directory = f.read()
-except IOError:
-    pass
-
-if (working_directory != ""):
-    pass
-
-elif (working_directory == "" or working_directory == " "):
-    working_directory = ""
+working_directory = os.getcwd()
 
 def ls():
     global working_directory
@@ -29,12 +18,22 @@ def cd():
     isdir = os.path.isdir(fullpath)
     if (isdir == True):
         working_directory = fullpath
+        try:
+            with open("mushroom_dir.conf", 'w') as f:
+                f.write(working_directory)
+        except IOError:
+            pass
     else:
         print("Directory not found.")
 
 def cddotdot():
     global working_directory
     working_directory = os.path.abspath(os.path.join(working_directory, os.pardir))
+    try:
+        with open("mushroom_dir.conf", 'w') as f:
+            f.write(working_directory)
+    except IOError:
+        pass
 
 def pwd():
     global working_directory
@@ -46,3 +45,12 @@ commands = {
 "cd ..":cddotdot,
 "pwd":pwd,
 }
+
+def console():
+    global working_directory
+    while True:
+        command = input("Mushroom: ")
+        if command in commands:
+            commands[command]()
+        else:
+            print("Command not found. Type 'help' for a list of commands.")
