@@ -36,7 +36,7 @@ def wf():
 
 def loadmod():
     global working_directory
-    modpath = working_directory + "/" + input("Please, enter mod path: ")
+    modpath = input("Please, enter mod path: ")
     with open(modpath) as f2:
         exec(f2.read())
 
