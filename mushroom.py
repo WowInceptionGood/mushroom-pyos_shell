@@ -45,6 +45,7 @@ commands = {
 "cd ..":cddotdot,
 "pwd":pwd,
 "m":mushroomlib.loadmod,
+"loadmod":mushroomlib.loadmod,
 }
 
 def console():
