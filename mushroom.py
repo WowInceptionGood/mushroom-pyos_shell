@@ -44,6 +44,8 @@ commands = {
 "cd":cd,
 "cd ..":cddotdot,
 "pwd":pwd,
+"mkdir":mushroomlib.mkdir,
+"cat":mushroomlib.vf,
 "m":mushroomlib.loadmod,
 "loadmod":mushroomlib.loadmod,
 }

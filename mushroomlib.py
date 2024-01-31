@@ -33,7 +33,7 @@ def vf():
 
 def wf():
     global working_directory
-    fp = working_directory + "/" + input("Path: ")
+    fp = input("Path: ")
     data = input("Data: ")
     with open(fp, 'w') as f:
         f.write(data)
