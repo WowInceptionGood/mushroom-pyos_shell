@@ -26,7 +26,7 @@ def cd():
     else:
         print("Directory not found.")
 
-def cddotdot():
+def cd_parentdir():
     global working_directory
     working_directory = os.path.abspath(os.path.join(working_directory, os.pardir))
     try:
@@ -35,6 +35,9 @@ def cddotdot():
     except IOError:
         pass
 
+def cddotdot():
+    cd_parentdir()
+
 def pwd():
     global working_directory
     print(working_directory)
@@ -42,8 +45,11 @@ def pwd():
 commands = {
 "ls":ls,
 "cd":cd,
-"cd ..":cddotdot,
+"cd ..":cd_parentdir,
 "pwd":pwd,
+"mkdir":mushroomlib.mkdir,
+"clear":mushroomlib.clear,
+"cat":mushroomlib.vf,
 "m":mushroomlib.loadmod,
 "loadmod":mushroomlib.loadmod,
 }
